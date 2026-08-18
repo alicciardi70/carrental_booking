@@ -6,5 +6,6 @@
 .dominican-logo i{display:block;border-radius:2px}.dominican-logo i:nth-child(1),.dominican-logo i:nth-child(4){background:#002d62}.dominican-logo i:nth-child(2),.dominican-logo i:nth-child(3){background:#ce1126}
 .dominican-logo svg{position:absolute;left:50%;top:50%;width:25px!important;height:25px;transform:translate(-50%,-50%);padding:4px;border-radius:50%;background:#fff;color:#173b61;stroke-width:2.4}
 .preference-toggle{display:flex;padding:3px;border:1px solid #d8e1eb;border-radius:9px;background:#f5f7fa}.preference-toggle button{min-width:34px;padding:6px 7px;border:0;border-radius:6px;background:transparent;color:#53667b;font-size:10px;font-weight:800;cursor:pointer}.preference-toggle button.active{background:#0c68d7;color:#fff;box-shadow:0 2px 5px #0c68d733}.currency-toggle button{min-width:40px}
+.supplier-line{display:flex;align-items:center;gap:7px;width:max-content;max-width:100%;margin:14px 0 0;padding:7px 10px;border-radius:8px;background:#edf6ff;color:#305a7e;font-size:10px}.supplier-line svg{width:15px;color:#1373c8}.supplier-line strong{color:#123c61}
 @media(max-width:1050px){.site-header nav{display:none}.brand strong{font-size:15px}}
 @media(max-width:700px){.currency-toggle{display:none}.preference-toggle button{min-width:30px}.dominican-logo{width:40px!important;height:40px!important}}
