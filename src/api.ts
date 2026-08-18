@@ -1,0 +1,11 @@
+const BASE=import.meta.env.VITE_API_BASE_URL||'/api/v1'
+let token=localStorage.getItem('customer_token')||''
+async function request<T>(path:string,options:RequestInit={}){const response=await fetch(`${BASE}${path}`,{...options,headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{ }),...options.headers}});const body=await response.json().catch(()=>({}));if(!response.ok)throw new Error(body.detail||'Unable to complete your request');return body as T}
+export const auth={set:(value:string)=>{token=value;localStorage.setItem('customer_token',value)},clear:()=>{token='';localStorage.removeItem('customer_token')},has:()=>!!token}
+export const api={brand:()=>request<{name:string;currency:string}>('/brand'),locations:()=>request<Location[]>('/locations'),search:(query:URLSearchParams)=>request<SearchResponse>(`/availability?${query}`),login:(body:object)=>request<AuthResponse>('/auth/login',{method:'POST',body:JSON.stringify(body)}),register:(body:object)=>request<AuthResponse>('/auth/register',{method:'POST',body:JSON.stringify(body)}),book:(body:object)=>request<BookingResult>('/reservations',{method:'POST',body:JSON.stringify(body)}),trips:()=>request<Trip[]>('/me/reservations')}
+export type Location={id:string;code:string;name:string;city:string;country_code:string;location_type:string}
+export type Car={vehicle_class_id:string;class_code:string;name:string;description?:string;passenger_capacity:number;luggage_capacity:number;door_count:number;transmission:string;fuel_type:string;available_count:number;make:string;model:string;model_year:number;rate_plan_price_id:string;rate_plan_id:string;rate_plan_name:string;currency_code:string;rate_amount:string;rental_days:number;total:string}
+export type SearchResponse={pickup_at:string;return_at:string;driver_age:number;items:Car[]}
+export type AuthResponse={access_token:string;customer:{first_name:string;last_name:string;email:string}}
+export type BookingResult={id:string;reservation_number:string;status:string;currency_code:string;quoted_total:string}
+export type Trip={id:string;reservation_number:string;status:string;pickup_at:string;return_at:string;currency_code:string;quoted_total:string;pickup_location:string;return_location:string;vehicle_class:string}
