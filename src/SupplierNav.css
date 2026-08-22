@@ -1,20 +1,21 @@
 .site-header nav>button:not(.supplier-nav-login){display:none}.site-header nav .supplier-nav-login{padding:7px 11px!important;border:1px solid #b9cde0!important;border-radius:8px!important;background:#f4f8fc!important;color:#185f9f!important;font-weight:800!important;white-space:nowrap}.site-header nav .supplier-nav-login:hover{border-color:#1e70bd!important;background:#eaf4fd!important}
 
 @media(max-width:1050px){
-  .site-header nav{display:flex;margin-left:auto;gap:0}
-  .site-header nav>a,.site-header nav>button:not(.supplier-nav-login){display:none}
-  .site-header .menu{display:none!important}
-}
-
-@media(max-width:600px){
-  .site-header nav .supplier-nav-login{width:38px;height:38px;padding:0!important;font-size:0!important}
-  .site-header nav .supplier-nav-login:before{content:'\1F511';font-size:16px;line-height:1}
+  .site-header{position:relative}
+  .site-header .menu{display:grid!important;place-items:center;width:38px;height:38px;padding:0!important;border:1px solid #d8e1eb!important;border-radius:9px!important;background:#fff!important;cursor:pointer}
+  .site-header nav{display:none;position:absolute;z-index:30;top:68px;right:20px;min-width:220px;margin:0;padding:10px;flex-direction:column;align-items:stretch;gap:3px;border:1px solid #d8e2ec;border-radius:12px;background:#fff;box-shadow:0 14px 35px #17324d33}
+  .site-header:has(.menu:focus) nav,.site-header nav:focus-within{display:flex}
+  .site-header nav>a,.site-header nav .supplier-nav-login{display:block!important;width:100%;padding:11px 12px!important;border:0!important;border-radius:8px!important;background:transparent!important;text-align:left;font-size:13px!important}
+  .site-header nav>a:hover,.site-header nav .supplier-nav-login:hover{background:#edf6ff!important;color:#155f9f!important}
 }
 
 @media(max-width:760px){
-  .site-header{position:relative;height:120px;padding-bottom:44px}
-  .site-header:after{content:'';position:absolute;right:16px;bottom:43px;left:16px;height:1px;background:#e6ebf1}
-  .site-header .account-actions>.preference-toggle{display:flex;position:absolute;bottom:7px;z-index:1}
-  .site-header .account-actions>.preference-toggle:not(.currency-toggle){right:calc(50% + 5px)}
-  .site-header .account-actions>.currency-toggle{left:calc(50% + 5px)}
+  .site-header{height:76px;padding-bottom:0}
+  .site-header .account-actions>.preference-toggle{display:flex;position:absolute;z-index:12;box-shadow:0 5px 16px #10263e24}
+  .site-header .account-actions>.preference-toggle:not(.currency-toggle){top:calc(100% + 14px);right:16px}
+  .site-header .account-actions>.currency-toggle{top:calc(100% + 414px);right:7vw}
+}
+
+@media(max-width:600px){
+  .site-header .account-actions>.currency-toggle{top:calc(100% + 394px)}
 }
