@@ -19,6 +19,16 @@ export default function App(){
  const [brand,setBrand]=useState('Dominican Rentals'),[usdToDop,setUsdToDop]=useState(60),[language,setLanguage]=useState<Language>(()=>(localStorage.getItem('booking_language') as Language)||'es'),[displayCurrency,setDisplayCurrency]=useState<DisplayCurrency>(()=>(localStorage.getItem('booking_currency') as DisplayCurrency)||'USD'),[locations,setLocations]=useState<Location[]>([]),[pickup,setPickup]=useState(''),[dropoff,setDropoff]=useState(''),[pickupAt,setPickupAt]=useState(localDate(2)),[returnAt,setReturnAt]=useState(localDate(5)),[age,setAge]=useState(30)
  const [sameLocation,setSameLocation]=useState(true)
  const [cars,setCars]=useState<CarType[]>([]),[searched,setSearched]=useState(false),[loading,setLoading]=useState(false),[error,setError]=useState(''),[selected,setSelected]=useState<CarType|null>(null),[authOpen,setAuthOpen]=useState(false),[customer,setCustomer]=useState<AuthResponse['customer']|null>(null),[confirmation,setConfirmation]=useState<BookingResult|null>(null)
+ useEffect(()=>{
+  const header=document.querySelector<HTMLElement>('.site-header')
+  const menu=header?.querySelector<HTMLElement>('.menu')
+  const supplier=header?.querySelector<HTMLElement>('.supplier-nav-login')
+  const toggleMenu=(event:PointerEvent)=>{event.preventDefault();header?.classList.toggle('mobile-open')}
+  const openSupplier=(event:PointerEvent)=>{event.preventDefault();header?.classList.remove('mobile-open');setCompanyPortal(true)}
+  menu?.addEventListener('pointerup',toggleMenu)
+  supplier?.addEventListener('pointerdown',openSupplier)
+  return()=>{menu?.removeEventListener('pointerup',toggleMenu);supplier?.removeEventListener('pointerdown',openSupplier)}
+ },[companyPortal,customer])
  const [tripsOpen,setTripsOpen]=useState(false),[trips,setTrips]=useState<Trip[]>([]),[tripsLoading,setTripsLoading]=useState(false)
  const [addOns,setAddOns]=useState<AddOn[]>([]),[selectedAddOns,setSelectedAddOns]=useState<Record<string,number>>({})
  const catalogVersion=useRef('')

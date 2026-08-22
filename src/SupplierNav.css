@@ -4,7 +4,7 @@
   .site-header{position:relative}
   .site-header .menu{display:grid!important;place-items:center;width:38px;height:38px;padding:0!important;border:1px solid #d8e1eb!important;border-radius:9px!important;background:#fff!important;cursor:pointer}
   .site-header nav{display:none;position:absolute;z-index:30;top:68px;right:20px;min-width:220px;margin:0;padding:10px;flex-direction:column;align-items:stretch;gap:3px;border:1px solid #d8e2ec;border-radius:12px;background:#fff;box-shadow:0 14px 35px #17324d33}
-  .site-header:has(.menu:focus) nav,.site-header nav:focus-within{display:flex}
+  .site-header.mobile-open nav,.site-header:has(.menu:focus) nav,.site-header nav:focus-within{display:flex}
   .site-header nav>a,.site-header nav .supplier-nav-login{display:block!important;width:100%;padding:11px 12px!important;border:0!important;border-radius:8px!important;background:transparent!important;text-align:left;font-size:13px!important}
   .site-header nav>a:hover,.site-header nav .supplier-nav-login:hover{background:#edf6ff!important;color:#155f9f!important}
 }
