@@ -1,4 +1,4 @@
-.site-header nav .supplier-nav-login{padding:7px 11px!important;border:1px solid #b9cde0!important;border-radius:8px!important;background:#f4f8fc!important;color:#185f9f!important;font-weight:800!important;white-space:nowrap}.site-header nav .supplier-nav-login:hover{border-color:#1e70bd!important;background:#eaf4fd!important}
+.site-header nav>button:not(.supplier-nav-login){display:none}.site-header nav .supplier-nav-login{padding:7px 11px!important;border:1px solid #b9cde0!important;border-radius:8px!important;background:#f4f8fc!important;color:#185f9f!important;font-weight:800!important;white-space:nowrap}.site-header nav .supplier-nav-login:hover{border-color:#1e70bd!important;background:#eaf4fd!important}
 
 @media(max-width:1050px){
   .site-header nav{display:flex;margin-left:auto;gap:0}
@@ -9,4 +9,12 @@
 @media(max-width:600px){
   .site-header nav .supplier-nav-login{width:38px;height:38px;padding:0!important;font-size:0!important}
   .site-header nav .supplier-nav-login:before{content:'\1F511';font-size:16px;line-height:1}
+}
+
+@media(max-width:760px){
+  .site-header{position:relative;height:120px;padding-bottom:44px}
+  .site-header:after{content:'';position:absolute;right:16px;bottom:43px;left:16px;height:1px;background:#e6ebf1}
+  .site-header .account-actions>.preference-toggle{display:flex;position:absolute;bottom:7px;z-index:1}
+  .site-header .account-actions>.preference-toggle:not(.currency-toggle){right:calc(50% + 5px)}
+  .site-header .account-actions>.currency-toggle{left:calc(50% + 5px)}
 }
