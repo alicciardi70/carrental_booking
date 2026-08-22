@@ -1,1 +1,12 @@
 .site-header nav .supplier-nav-login{padding:7px 11px!important;border:1px solid #b9cde0!important;border-radius:8px!important;background:#f4f8fc!important;color:#185f9f!important;font-weight:800!important;white-space:nowrap}.site-header nav .supplier-nav-login:hover{border-color:#1e70bd!important;background:#eaf4fd!important}
+
+@media(max-width:1050px){
+  .site-header nav{display:flex;margin-left:auto;gap:0}
+  .site-header nav>a,.site-header nav>button:not(.supplier-nav-login){display:none}
+  .site-header .menu{display:none!important}
+}
+
+@media(max-width:600px){
+  .site-header nav .supplier-nav-login{width:38px;height:38px;padding:0!important;font-size:0!important}
+  .site-header nav .supplier-nav-login:before{content:'\1F511';font-size:16px;line-height:1}
+}
